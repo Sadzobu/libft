@@ -1,21 +1,32 @@
 #include "libft.h"
+#include <string.h>
 
-size_t ft_strlcat(char *dest, const char *src, size_t size)
+size_t ft_strlcat(dst, src, siz)
+	char *dst;
+	const char *src;
+	size_t siz;
 {
-    size_t srclen;
-    size_t destlen;
+	char *d = dst;
+	const char *s = src;
+	size_t n = siz;
+	size_t dlen;
 
-    srclen = ft_strlen(src);
-    destlen = ft_strnlen(dest, size);
-    
-    if (destlen == size)
-        return (size + srclen);
-    if (srclen < size - destlen)
-        ft_memcpy(dest + destlen, src, srclen + 1);
-    else
-    {
-        ft_memcpy(dest + destlen, src, size - 1);
-        dest[destlen + size - 1] = '\0';
-    }
-    return (destlen + srclen);
+	/* Find the end of dst and adjust bytes left but don't go past end */
+	while (n-- != 0 && *d != '\0')
+		d++;
+	dlen = d - dst;
+	n = siz - dlen;
+
+	if (n == 0)
+		return(dlen + strlen(s));
+	while (*s != '\0') {
+		if (n != 1) {
+			*d++ = *s;
+			n--;
+		}
+		s++;
+	}
+	*d = '\0';
+
+return(dlen + (s - src)); /* count does not include NUL */
 }

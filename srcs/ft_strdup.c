@@ -3,14 +3,16 @@
 char	*ft_strdup(const char *s)
 {
     char *dest;
-
+    char *tmp;
+    
     dest = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
-    if (dest)
+    tmp = dest;
+    if (tmp)
     {
         while (*s)
-            *dest++ = *s++;
-        *dest = '\0';
-        return (dest - ft_strlen(s) - 1);
+            *tmp++ = *s++;
+        *tmp = '\0';
+        return (dest);
     }
     return (NULL);
         

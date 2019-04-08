@@ -2,7 +2,10 @@
 
 char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-    if (ft_strlen(src) != n)
-        ft_memset(dest + ft_strlen(src), '\0', n - ft_strlen(src));
-    return (ft_memcpy(dest, src, ft_strlen(src)));
+    size_t size;
+
+    size = ft_strnlen(src, n);
+    if (size != n)
+        ft_memset(dest + size, '\0', n - size);
+    return ((char*)ft_memcpy(dest, src, size));
 }

@@ -11,7 +11,7 @@ HEAD    = libft.h
 all: $(NAME)
 
 $(NAME):
-		@$(CC) $(CFLAGS) -c *.c
+		@$(CC) $(CFLAGS) -c srcs/*.c -I includes/
 		@$(AR) $(NAME) *.o
 		@$(RANLIB) $(NAME)
 
@@ -23,5 +23,6 @@ clean:
 
 fclean: clean
 		@rm -f $(NAME)
+		@rm -f libft.so
 
 re: fclean all
