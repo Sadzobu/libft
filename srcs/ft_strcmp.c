@@ -7,8 +7,8 @@ int		ft_strcmp(const char *s1, const char *s2)
 
     s3 = (unsigned char *)s1;
     s4 = (unsigned char *)s2;
-    while (*s3++ == *s4++)
-        if (!*s3)
+    while (*s3 && *s4)
+        if (*s3++ != *s4++)
             return (*--s3 - *--s4);
-    return (*--s3  - *--s4);
+    return (*s3  - *s4);
 }
