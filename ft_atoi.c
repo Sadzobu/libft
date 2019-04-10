@@ -6,7 +6,7 @@
 /*   By: ncammie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 18:54:58 by ncammie           #+#    #+#             */
-/*   Updated: 2019/04/10 19:33:45 by ncammie          ###   ########.fr       */
+/*   Updated: 2019/04/10 20:53:00 by ncammie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ int		ft_atoi(const char *nptr)
 	while (*nptr && ft_isdigit(*nptr))
 	{
 		if ((result > 922337203685477500 || (result == 922337203685477500 &&
-											((*str - '0') > 7)) && sign == 1))
+											(*nptr - '0') > 7)) && sign == 1)
 			return (-1);
 		if ((result > 922337203685477500 || (result == 922337203685477500 &&
-											((*str - '0') > 8)) && sign == -1))
+											(*nptr - '0') > 8)) && sign == -1)
 			return (0);
 		result = (result * 10) + (*nptr++ - '0');
 	}

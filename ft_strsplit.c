@@ -6,7 +6,7 @@
 /*   By: ncammie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 19:09:43 by ncammie           #+#    #+#             */
-/*   Updated: 2019/04/09 23:07:48 by ncammie          ###   ########.fr       */
+/*   Updated: 2019/04/10 20:05:54 by ncammie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ static	size_t	ft_cntsmb(char const *s, char c)
 
 static	char	**ft_memdelall(char ***s)
 {
-    char **tmp;
+	char **tmp;
 
-    tmp = *s;
-    while (*tmp)
-        free(*tmp++);
-    free(tmp);
-    return (NULL);
+	tmp = *s;
+	while (*tmp)
+		free(*tmp++);
+	free(tmp);
+	return (NULL);
 }
 
 char			**ft_strsplit(char const *s, char c)
@@ -57,7 +57,7 @@ char			**ft_strsplit(char const *s, char c)
 	size_t	j;
 	size_t	pos;
 	char	**res;
-	
+
 	if (s)
 		if ((res = (char **)malloc(sizeof(*res) * (ft_cntwrd(s, c) + 1))))
 		{
@@ -69,7 +69,7 @@ char			**ft_strsplit(char const *s, char c)
 				{
 					pos = i - 1;
 					if (!(res[j++] = ft_strsub(s, pos, ft_cntsmb(s + pos, c))))
-                        return(ft_memdelall(&res));
+						return (ft_memdelall(&res));
 					i += ft_cntsmb(s + pos, c);
 				}
 			res[j] = NULL;
