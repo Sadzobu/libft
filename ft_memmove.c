@@ -6,7 +6,7 @@
 /*   By: ncammie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 22:18:48 by ncammie           #+#    #+#             */
-/*   Updated: 2019/04/09 23:11:46 by ncammie          ###   ########.fr       */
+/*   Updated: 2019/04/10 18:30:48 by ncammie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 		while (len--)
 			*d++ = *s++;
 	else
-    {
-		lasts = s + (len-1);
-		lastd = d + (len-1);
+	{
+		lasts = s + (len - 1);
+		lastd = d + (len - 1);
 		while (len--)
 			*lastd-- = *lasts--;
 	}
