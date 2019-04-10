@@ -11,12 +11,12 @@ HEAD    = libft.h
 all: $(NAME)
 
 $(NAME):
-		@$(CC) $(CFLAGS) -fPIC -c srcs/*.c -I includes/
+		@$(CC) $(CFLAGS) -fPIC -c *.c -I .
 		@$(AR) $(NAME) *.o
 		@$(RANLIB) $(NAME)
 
 so:
-		gcc -fPIC -Wall -Wextra -Werror -shared -o libft.so *.o
+		gcc -Wall -Wextra -Werror -shared -o libft.so *.o
 
 clean:
 		@rm -f *.o
