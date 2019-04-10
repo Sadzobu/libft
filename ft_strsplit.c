@@ -40,6 +40,17 @@ static	size_t	ft_cntsmb(char const *s, char c)
 	return (res);
 }
 
+static	char	**ft_memdelall(char ***s)
+{
+    char **tmp;
+
+    tmp = *s;
+    while (*tmp)
+        free(*tmp++);
+    free(tmp);
+    return (NULL);
+}
+
 char			**ft_strsplit(char const *s, char c)
 {
 	size_t	i;
@@ -48,9 +59,7 @@ char			**ft_strsplit(char const *s, char c)
 	char	**res;
 	
 	if (s)
-	{
-		res = (char **)malloc(sizeof(*res) * (ft_cntwrd(s, c) + 1));
-		if (res)
+		if ((res = (char **)malloc(sizeof(*res) * (ft_cntwrd(s, c) + 1))))
 		{
 			i = 0;
 			j = 0;
@@ -59,12 +68,12 @@ char			**ft_strsplit(char const *s, char c)
 				if (s[i++] != c)
 				{
 					pos = i - 1;
-					res[j++] = ft_strsub(s, pos, ft_cntsmb(s + pos, c));
+					if (!(res[j++] = ft_strsub(s, pos, ft_cntsmb(s + pos, c))))
+                        return(ft_memdelall(&res));
 					i += ft_cntsmb(s + pos, c);
 				}
 			res[j] = NULL;
 			return (res);
 		}
-	}
 	return (NULL);
 }
