@@ -24,6 +24,7 @@ t_list		*ft_lstnew(void const *content, size_t content_size)
                 res->next = NULL;
                 return (res);
             }
+            free(res);
         }
     }
     return (NULL);
