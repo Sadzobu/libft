@@ -24,11 +24,11 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		while ((haystack[i + j] == needle[j]) && needle[j] && ((i + j) < len))
 			j += 1;
 		if (!needle[j])
-			return ((char *)&haystack[i]);
+			return ((char *)haystack + i);
 		j = 0;
 		i += 1;
 	}
 	if (!needle[0])
-		return ((char *)&haystack[i]);
+		return ((char *)haystack + i);
 	return (NULL);
 }
